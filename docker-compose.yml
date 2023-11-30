@@ -31,10 +31,13 @@ services:
       - .:/var/www/html
 
   phpmyadmin:
-      depends_on:
-          - db
-      image: phpmyadmin
-      restart: always
-      ports:
-          - 8081:80
-      environment:
+    depends_on:
+      - db
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
